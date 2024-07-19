@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call Recorder</title>
+</head>
+<body>
+    <h1>Call Recorder</h1>
+    <form id="service-form">
+        <label for="param_value">Enter the phone number without +:</label>
+        <input type="text" id="param_value" name="param_value" required>
+        <button type="submit">Send Request</button>
+    </form>
+    <div id="response">
+        <h2>Response</h2>
+        <pre id="response-content"></pre>
+    </div>
+    <script>
+        document.getElementById('service-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const paramValue = formData.get('param_value');
+            
+            fetch('/send_request', {
+                method: 'POST',
+                body: new URLSearchParams(`param_value=${paramValue}`),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('response-content').textContent = JSON.stringify(data, null, 2);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
+
