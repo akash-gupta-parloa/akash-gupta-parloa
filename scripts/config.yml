@@ -89,3 +89,17 @@ services:
       - name: "VoIP Team Monitors"
         subtitle: "Team Monitors"
         url: "https://app.datadoghq.eu/monitors/manage?q=team%3Avoip&order=desc"
+
+  - name: "Kibana"
+    icon: "fas fa-cloud"
+    items:
+      - name: "Silent Call Dashboard"
+        subtitle: "Dashboard and logs"
+        url: "https://kibana.app.parloa.com/app/discover#/?_g=(filters:!(),refreshInterval:(pause:!t,value:60000),time:(from:now%2Fd,to:now%2Fd))&_a=(columns:!(),filters:!(),index:'729fb1db-1ac6-4441-84c4-a48cefb69561',interval:auto,query:(language:kuery,query:'%22in%200%20p%22%20AND%20NOT%20%22(RTCP)%22%20AND%20NOT%20%22:0%20%20%20%20,%20SSRC%200,%22'),sort:!(!('@timestamp',desc)))"
+
+  - name: "Notion"
+    icon: "fas fa-cloud"
+    items:
+      - name: "Identity Aware Proxy and URLs"
+        subtitle: "Identity Aware Proxy and URLs"
+        url: "https://www.notion.so/parloa/Identity-Aware-Proxy-and-URLs-91fc91ac3754409c8d884a613c6f137e"
